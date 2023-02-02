@@ -1,4 +1,3 @@
-#import winsound
 import pygame
 from pygame import mixer
 from pynput.keyboard import Listener, Key
@@ -14,16 +13,12 @@ class KeyboardPlayer(Thread):
         self.combinations = combinations
         self.pressed_keys = pressed_keys
         self.label = label
-        self.stop_condition = False
         self.restart_music = restart_music
         mixer.init()
 
     def run(self):
         with Listener(on_press=self.key_pressed, on_release=self.key_released) as listener:
             listener.join()
-
-    def stop(self):
-        self.stop_condition = True
 
     def play_sound(self, path):
         if path != self.currently_playing or self.restart_music:
@@ -34,9 +29,10 @@ class KeyboardPlayer(Thread):
             except pygame.error:
                 print("Unsupported Filetype")
 
+    def stop_playback(self):
+        mixer.music.stop()
+
     def key_pressed(self, key):
-        if self.stop_condition:
-            return False
         if key not in self.pressed_keys:
             self.pressed_keys.add(key)
             self.label.config(text=pretty_combination(self.pressed_keys))
@@ -45,11 +41,6 @@ class KeyboardPlayer(Thread):
                     self.play_sound(self.combinations[combi])
 
     def key_released(self, key):
-        if self.stop_condition:
-            return False
         if key in self.pressed_keys:
             self.pressed_keys.remove(key)
             self.label.config(text=pretty_combination(self.pressed_keys))
-
-        if key == Key.esc and self.stop_condition:
-            return False

@@ -1,18 +1,18 @@
 from tkinter.ttk import *
 
 # Colors
-tb =        "#505050"
-tb_fg =     "#C0C0C0"
-bg =        "#303030"
-fg =        "#E3E3E3"
-fg_dark =   "#B3B3B3"
-accent =    "#34515E"
-accent_h =  "#607D8B"
-accent_s =  "#006594"
-accent_s_h ="#009ceb"
-second =    "#AB793C"
-green =     "#40d040"
-red =       "#ff5050"
+tb = "#505050"
+tb_fg = "#C0C0C0"
+bg = "#303030"
+fg = "#E3E3E3"
+fg_dark = "#B3B3B3"
+accent = "#34515E"
+accent_h = "#607D8B"
+accent_s = "#006594"
+accent_s_h = "#009ceb"
+second = "#AB793C"
+green = "#40d040"
+red = "#ff5050"
 
 # Fonts
 font_family = "Segoe UI"
