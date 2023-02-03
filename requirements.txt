@@ -1,2 +1,2 @@
-pickle
-pygame
+pynput==1.7.6
+pygame==2.1.3.dev8
