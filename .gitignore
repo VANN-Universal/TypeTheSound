@@ -1,7 +1,7 @@
 .idea/
 __pycache__/
 .fleet/
-.build/
-.dist/
+build/
+dist/
 *.spec
 *test*
